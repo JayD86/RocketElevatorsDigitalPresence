@@ -4,7 +4,7 @@ var Building_Type_Commercial ="2"
 var Building_Type_Corporate ="3"
 var Building_Type_Hybrid ="4"
 
-$(document).ready(function () {
+$(quote.html).ready(function () {
     hideForms();
     //Type of building selection
     $('#building-type-select').on('change', function() {
@@ -16,16 +16,16 @@ function showForm(buildingTypeId) {
     hideForms();
     switch (buildingTypeId) {
         case Building_Type_Residential:
-            getResidentialDivs().show();
+            getResidentialDivs().show('#number-of-appartments, #number-of-floors, #number-of-basements');
             break;
         case Building_Type_Commercial:
-            getCommercialDivs().show();
+            getCommercialDivs().show('#number-of-businesses, #number-of-floors, #number-of-basements, #number-of-parkings-spots, #number-of-elevator-cages');
             break;
         case Building_Type_Corporate:
-            getCorporateDivs().show();
+            getCorporateDivs().show('#number-of-businesses, #number-of-floors, #number-of-basements, #number-of-parkings, #maximum-number-of-occupants-per-floor');
             break;
         case Building_Type_Hybrid:
-            getHybridDivs().show();
+            getHybridDivs().show('#number-of-businesses, #number-of-floors, #number-of-basements, #number-of-parkings, #maximum-number-of-occupants-per-floor, #number-of-activity-hours-in-the-building');
             break;
         default:
             break;                
@@ -41,7 +41,7 @@ function getCommercialDivs() {
 }
 
 function getCorporateDivs() {
-    return $('#number-of-businesses, #number-of-floors, #number-of-basements, #number-of-parkings, #Maximum-occupancy');
+    return $('#number-of-businesses, #number-of-floors, #number-of-basements, #number-of-parkings, #maximum-number-of-occupants-per-floor');
 }
 
 function getHybridDivs() {
@@ -57,7 +57,7 @@ function getCommercialInputFields() {
 }
 
 function getCorporateInputFields() {
-    return $('#number-of-businesses-input, #number-of-floors-input, #number-of-basements-input, #number-of-parkings-input, #Maximum-occupancy-input');
+    return $('#number-of-businesses-input, #number-of-floors-input, #number-of-basements-input, #number-of-parkings-input, #maximum-number-of-occupants-per-floor-input');
 }
 
 function getHybridInputFields() {
@@ -75,10 +75,10 @@ function getValuesFromInputFields(inputFields) {
 }
 
 function hideforms() {
-    getResidentialDivs().hide();
-    getCommercialDivs().hide();
-    getCorporateDivs().hide();
-    getHybridDivs().hide();
+    getResidentialDivs().hide('#number-of-parking-spots, #number-of-elevator-cages, #maximum-number-of-occupants-per-floor, #number-of-activity-hours-in-the-building');
+    getCommercialDivs().hide('#number-of-appartments, #maximum-number-of-occupants-per-floor, #number-of-activity-hours-in-the-building');
+    getCorporateDivs().hide('#number-of-appartments, #number-of-elevator-cages, #number-of-activity-hours-in-the-building');
+    getHybridDivs().hide('#number-of-appartments, #number-of-elevator-cages');
 }
 
 function getResidentialElevatorEstimate() {
@@ -101,4 +101,25 @@ function getCommercialElevatorEstimate() {
     return Math.random();
 }
 
- //continue functions
+function getCorporateElevatorEstimate() {
+    var values = getValuesFromInputFields(getCorporateInputFields());
+    var number_of_businesses = parseInt(values[0]);
+    var number_of_floors = parseInt(values[1]);
+    var number_of_basements = parseInt(values[2]);
+    var number_of_parking_spots = parseInt(values[3]);
+    var maximum_number_of_occupants_per_floor = parseInt(values[4]);
+}
+
+function getHybridElevatorEstimate() {
+    var values = getValuesFromInputFields(getCorporateInputFields());
+    var number_of_businesses = parseInt(values[0]);
+    var number_of_floors = parseInt(values[1]);
+    var number_of_basements = parseInt(values[2]);
+    var number_of_parking_spots = parseInt(values[3]);
+    var maximum_number_of_occupants_per_floor = parseInt(values[4]);
+    var number_of_activity_hours_in_the_building = parseInt(values[5]);
+}
+ 
+
+
+//continue functions
