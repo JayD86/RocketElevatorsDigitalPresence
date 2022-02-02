@@ -174,7 +174,7 @@
 			<section class="page-header">
 				<div class="container">
 
-					<h1>QUOTE</h1>
+					<h1>Get Your Free Quote Here</h1>
 
 				</div>
 			</section>
@@ -183,28 +183,74 @@
 
 
 
-			<!-- -->
+			<!-- Quote elements -->
 			<section>
-				<div class="container">
-					
-					quoteFormElements: [
-					{
-						type: "residential",
-						inputFields: ["number-of-apartments", "number-of-floors", "number-of-basements"]
-					},
-					{
-						type: "commercial",
-						inputFields: ["number-of-floors", "number-of-basements","number-of-companies", "number-of-parking-spots", "number-of-elevators"]
-					},
-					{
-						type: "corporate",
-						inputFields: ["number-of-floors", "number-of-basements","number-of-parking-spots", "number-of-corporations", "maximum-occupancy"]
-					},
-					{
-				
+				<div class="container justify-content-center align-items-center">
+					<h2>Quote Form</h2>
+					<div class="fancy-form fancy-form-select">
+						<label for="building-type-select">Building Type</label>
+						<select class="form-control" id="building-type-select">
+						  <option value="">Type of building</option>
+						  <option value="1">residential</option>
+						  <option value="2">commercial</option>
+						  <option value="3">corporate</option>	
+						  <option value="4">hybrid</option>			
+					  </select>
+					</div>  
+				  
+					<div class="row">
+						<div class="col-8">
+							<div class="row">
+								<div class="col">
+									<div id="number-of-appartments">
+										<label for="number-of-appartments-input">number of appartments</label>
+										<input id="number-of-appartments-input" type="text" value="0" min="0" class="form-control stepper">
+									</div>
 
+									<div id="number-of-businesses">
+										<label for="number-of-businesses-input">number of businesses</label>
+										<input id="number-of-businesses-input" type="text" value="0" min="0" class="form-control stepper">
+									</div>
+									
+									<div id="number-of-floors">
+										<label for="number-of-floors-input">number of floors</label>
+										<label 
+										<input id="number-of-floors-input" type="text" value="0" min="0"class="form-control stepper">
+									</div>
+									
+									<div id="number-of-basements">
+										<label for="number-of-basements-input">number of basements</label>
+										<input id="number-of-basements-input" type="text" value="0" min="0"class="form-control stepper">
+									</div>
 
-					
+									<div id="number-of-companies">
+										<label for="number-of-companies-input">number of companies</label>
+										<input id="number-of-companies-input" type="text" value="0" min="0"class="form-control stepper">
+									</div>
+
+									<div id="number-of-parking-spots">
+										<label for="number-of-parking-spots-input">number of parking spots</label>
+										<input id="number-of-parking spots-input" type="text" value="0" min="0"class="form-control stepper">
+									</div>
+
+									<div id="number-of-elevators">
+										<label for="number-of-elevators-input">number of elevators</label>
+										<input id="number-of-elevators-input" type="text" value="0" min="0"class="form-control stepper">
+									</div>
+
+									<div id="number-of-corporations">
+										<label for="number-of-corporations-input">number of corporations</label>
+										<input id="number-of-corporations-input" type="text" value="0" min="0"class="form-control stepper">
+									</div>
+
+									<div id="maximum-occupancy">
+										<label for="maximum-occupancy-input">maximum-occupancy</label>
+										<input id="maximum-occupancy-input" type="text" value="0" min="0"class="form-control stepper">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>		
 				</div>
 			</section>
 			<!-- / -->
@@ -242,11 +288,6 @@
 
 				<div class="copyright">
 					<div class="container">
-						<ul class="float-right m-0 list-inline mobile-block">
-							<li><a href="#">Terms &amp; Conditions</a></li>
-							<li>&bull;</li>
-							<li><a href="#">Privacy</a></li>
-						</ul>
 						&copy; All Rights Reserved, Rocket Elevators inc.
 					</div>
 				</div>
