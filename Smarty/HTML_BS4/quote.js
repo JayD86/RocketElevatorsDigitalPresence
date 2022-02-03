@@ -4,12 +4,29 @@ var Building_Type_Commercial ="2"
 var Building_Type_Corporate ="3"
 var Building_Type_Hybrid ="4"
 
-$(quote.html).ready(function () {
-    hideForms();
+$(document).ready(function () {
+    //hideForms();
     //Type of building selection
     $('#building-type-select').on('change', function() {
         showForm(this.value);
     })
+
+    getResidentialInputFields().on('change', function() {
+        $('#number-of-elevators-needed').text(getResidentialElevatorsEstimate());
+    })
+
+    getCommercialInputFields().on('change', function() {
+        $('#number-of-elevators-needed').text(getCommercialElevatorEstimate());
+    }) 
+    
+    getCorporateInputFields().on('change', function() {
+        $('#number-of-elevators-needed').text(getCorporateElevatorEstimate());
+    })
+
+    getHybridInputFields().on('change', function() {
+        $('#number-of-elevators-needed').text(getHybridElevatorEstimate());
+    })
+
 })
 
 function showForm(buildingTypeId) {
@@ -87,7 +104,8 @@ function getResidentialElevatorEstimate() {
     var number_of_floors = parseInt(values[1]);
     var number_of_basements = parseInt(values[2]);
     //calculations to do
-    return Math.random();
+    //reste  si plus de 20 etages doubler elevators
+    return parseInt((values[0]/values[1])/6);   
 }
 
 function getCommercialElevatorEstimate() {
@@ -98,7 +116,7 @@ function getCommercialElevatorEstimate() {
     var number_of_parking_spots = parseInt(values[3]);
     var number_of_elevator_cages = parseInt(values[4]);
     //calculations to do
-    return Math.random();
+    return parseInt(values[4]);
 }
 
 function getCorporateElevatorEstimate() {
@@ -108,6 +126,8 @@ function getCorporateElevatorEstimate() {
     var number_of_basements = parseInt(values[2]);
     var number_of_parking_spots = parseInt(values[3]);
     var maximum_number_of_occupants_per_floor = parseInt(values[4]);
+    //calculations to do
+    return parseInt(((values[1]+values[2])*values[4])/1000)
 }
 
 function getHybridElevatorEstimate() {
