@@ -1,48 +1,48 @@
 
-var Building_Type_Residential ="1"
-var Building_Type_Commercial ="2"
-var Building_Type_Corporate ="3"
-var Building_Type_Hybrid ="4"
+var Building_Type_Residential ="residential"
+var Building_Type_Commercial ="commercial"
+var Building_Type_Corporate ="corporate"
+var Building_Type_Hybrid ="hybrid"
 
 $(document).ready(function () {
-    //hideForms();
+    hideforms();
     //Type of building selection
     $('#building-type-select').on('change', function() {
         showForm(this.value);
     })
-
+    
     getResidentialInputFields().on('change', function() {
-        $('#number-of-elevators-needed').text(getResidentialElevatorsEstimate());
+      $('#number-of-elevators-needed').text(getResidentialElevatorsEstimate());
     })
 
     getCommercialInputFields().on('change', function() {
-        $('#number-of-elevators-needed').text(getCommercialElevatorEstimate());
+      $('#commercial').text(getCommercialElevatorEstimate());
     }) 
     
     getCorporateInputFields().on('change', function() {
-        $('#number-of-elevators-needed').text(getCorporateElevatorEstimate());
+      $('#corporate').text(getCorporateElevatorEstimate());
     })
 
     getHybridInputFields().on('change', function() {
-        $('#number-of-elevators-needed').text(getHybridElevatorEstimate());
+      $('#hybrid').text(getHybridElevatorEstimate());
     })
 
 })
 
 function showForm(buildingTypeId) {
-    hideForms();
+    hideforms();
     switch (buildingTypeId) {
         case Building_Type_Residential:
-            getResidentialDivs().show('#number-of-appartments, #number-of-floors, #number-of-basements');
+            getResidentialDivs().show();    //remove this
             break;
         case Building_Type_Commercial:
-            getCommercialDivs().show('#number-of-businesses, #number-of-floors, #number-of-basements, #number-of-parkings-spots, #number-of-elevator-cages');
+            getCommercialDivs().show();
             break;
         case Building_Type_Corporate:
-            getCorporateDivs().show('#number-of-businesses, #number-of-floors, #number-of-basements, #number-of-parkings, #maximum-number-of-occupants-per-floor');
+            getCorporateDivs().show();
             break;
         case Building_Type_Hybrid:
-            getHybridDivs().show('#number-of-businesses, #number-of-floors, #number-of-basements, #number-of-parkings, #maximum-number-of-occupants-per-floor, #number-of-activity-hours-in-the-building');
+            getHybridDivs().show();
             break;
         default:
             break;                
@@ -139,7 +139,15 @@ function getHybridElevatorEstimate() {
     var maximum_number_of_occupants_per_floor = parseInt(values[4]);
     var number_of_activity_hours_in_the_building = parseInt(values[5]);
 }
- 
 
+var price
+var taxe
 
-//continue functions
+event change radio button (
+    var value = valeur du radio button = "Standard"
+
+    if value == "Standard" (
+        price = 1500
+        taxe = 0.11
+    )
+)
